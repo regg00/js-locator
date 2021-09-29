@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-<body>
+<body onload="getLocation()">
 
 <p id="demo">Click the button to get your coordinates:</p>
-
-<button onclick="getLocation()">Try It</button>
+<p id="ua"></p>
 
 <script>
 var x = document.getElementById("demo");
+var ua = document.getElementById("ua");
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -30,6 +30,9 @@ function getLocation() {
 function showPosition(position) {
     x.innerHTML="Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude;  
+
+    ua.innerHTML=navigator.userAgent;    
+
 }
 </script>
 
